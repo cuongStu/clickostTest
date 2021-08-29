@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="AutoClicker" customModuleProvider="target">
+            <connections>
+                <outlet property="preferencesWindow" destination="lzH-cT-guj" id="msM-6h-xWX"/>
+                <outlet property="shortcutView" destination="fH4-6y-Rml" id="shB-vc-RGP"/>
+                <outlet property="speedLabel" destination="ygm-P8-8O4" id="ZY9-Wl-bCk"/>
+                <outlet property="speedSlider" destination="2CA-ED-Yl8" id="t9b-ot-tvH"/>
+                <outlet property="statusMenu" destination="IiO-fY-ySy" id="hn7-YY-idI"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu id="IiO-fY-ySy">
+            <items>
+                <menuItem title="Preferences…" id="rPN-KK-VNc">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="Voe-Tx-rLC" id="0n0-3f-N0G"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" id="wxi-sA-vwv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitClicked:" target="Voe-Tx-rLC" id="PZP-bg-qUA"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="AutoClicker Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="lzH-cT-guj">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="1436" y="774" width="244" height="163"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <view key="contentView" id="05t-ra-bOk">
+                <rect key="frame" x="0.0" y="0.0" width="244" height="163"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxo-Ni-KUF">
+                        <rect key="frame" x="18" y="126" width="62" height="17"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Shortcut:" id="81l-Nt-r0o">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fH4-6y-Rml" customClass="MASShortcutView">
+                        <rect key="frame" x="86" y="124" width="138" height="19"/>
+                    </customView>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ED-Yl8">
+                        <rect key="frame" x="84" y="97" width="142" height="21"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="40" doubleValue="40" tickMarkPosition="above" sliderType="linear" id="6Tl-Xw-jhV"/>
+                        <connections>
+                            <action selector="speedChanged:" target="Voe-Tx-rLC" id="yIK-8c-1Gu"/>
+                        </connections>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-iD-Zmi">
+                        <rect key="frame" x="18" y="101" width="62" height="17"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Speed:" id="LdH-XK-YBm">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygm-P8-8O4">
+                        <rect key="frame" x="86" y="82" width="140" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="l0P-FS-pcs">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="286" y="198.5"/>
+        </window>
+    </objects>
+</document>
